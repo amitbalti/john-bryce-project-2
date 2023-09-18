@@ -5,20 +5,18 @@
   and attached them so that the application will work properly 
 
   In case you want to use the actual api, I will leave the code in comment. 
-  Needs to be changed in lines: 12, 13, 21, 39, 107 - uncomment them.
-  Also change in lines: 14, 22, 40, 108 - comment them out.
+  Needs to be changed - comment line 12.
+                      - comment out line 13.
 */
 
-// const coinsUrl = "/SecondProject/js/data.json";
-// const coinsRateUrl = "https://api.coingecko.com/api/v3/coins";
-const coinsUrl = "https://api.coingecko.com/api/v3/coins/list"; // Real API code
+const coinsUrl = "/js/data.json";
+// const coinsUrl = "https://api.coingecko.com/api/v3/coins/list"; // Real API code
 
 // local memory cache of the coins data
 let data = null;
 
 async function getAllCoins() {
   $("#progress-bar").show(); // show progress bar
-  //   return await $.get(coinsRateUrl, {
   return await $.get(coinsUrl, {
     beforeSend: function () {
       $("#progress-bar").show();
@@ -36,7 +34,6 @@ async function getAllCoinsRate() {
       myPromise.then(() => {
         $("#progress-bar").show();
         $.ajax({
-          //   url: coinsRateUrl,
           url: coinsUrl,
           dataType: "json",
           method: "GET",
@@ -104,7 +101,6 @@ const displayCoinRate = (coin, i) => {
   `);
   } else {
     // Make API call to get current coin rate in USD, EUR, and ILS
-    // let coinRatesUrl = `${coinsRateUrl}/${coin.id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`;
     let coinRatesUrl = `${coinsUrl}/${coin.id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`;
     $.get(coinRatesUrl).then((coinRates) => {
       // Append current coin rate to the corresponding "currentPrice" div
