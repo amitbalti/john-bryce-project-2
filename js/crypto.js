@@ -5,7 +5,8 @@
   and attached them so that the application will work properly 
 
   In case you want to use the actual api, I will leave the code in comment. 
-  Needs to be changed in lines: 11, 12, 20, 38, 106
+  Needs to be changed in lines: 12, 13, 21, 39, 107 - uncomment them.
+  Also change in lines: 14, 22, 40, 108 - comment them out.
 */
 
 // const coinsUrl = "/SecondProject/js/data.json";
