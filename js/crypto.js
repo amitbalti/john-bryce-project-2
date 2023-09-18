@@ -2,7 +2,7 @@
   Since the API is constantly blocked, and since not all the coins have rates, 
   and since not all the coins are able to display in the live reports, 
   I have created a JSON file with all the coins that do have the relevant and needed data, 
-  and attached them so that the application will work properly 
+  and attached them so that the application will work properly - when using the json file, the live report won't change since it's hard coded.
 
   In case you want to use the actual api, I will leave the code in comment. 
   Needs to be changed - comment line 12.
