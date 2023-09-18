@@ -4,7 +4,8 @@
   I have created a JSON file with all the coins that do have the relevant and needed data, 
   and attached them so that the application will work properly 
 
-  In case you want to use the actual api, I will leave the code in comment.
+  In case you want to use the actual api, I will leave the code in comment. 
+  Needs to be changed in lines: 11, 12, 20, 38, 106
 */
 
 // const coinsUrl = "/SecondProject/js/data.json";
@@ -16,6 +17,7 @@ let data = null;
 
 async function getAllCoins() {
   $("#progress-bar").show(); // show progress bar
+  //   return await $.get(coinsRateUrl, {
   return await $.get(coinsUrl, {
     beforeSend: function () {
       $("#progress-bar").show();
@@ -33,6 +35,7 @@ async function getAllCoinsRate() {
       myPromise.then(() => {
         $("#progress-bar").show();
         $.ajax({
+          //   url: coinsRateUrl,
           url: coinsUrl,
           dataType: "json",
           method: "GET",
@@ -100,6 +103,7 @@ const displayCoinRate = (coin, i) => {
   `);
   } else {
     // Make API call to get current coin rate in USD, EUR, and ILS
+    // let coinRatesUrl = `${coinsRateUrl}/${coin.id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`;
     let coinRatesUrl = `${coinsUrl}/${coin.id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`;
     $.get(coinRatesUrl).then((coinRates) => {
       // Append current coin rate to the corresponding "currentPrice" div
